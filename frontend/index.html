@@ -13,17 +13,20 @@
 
 <style>
 :root {
-  --bg: #0d1117;
-  --panel: #131a24;
-  --panel-2: #1a2330;
-  --line: #253141;
-  --text: #dbe4ef;
-  --text-dim: #8a99ac;
-  --ember: #ff6a3d;
-  --ember-dim: #7a3624;
-  --amber: #e8a13a;
-  --teal: #3ac6a8;
-  --danger: #ff4d4d;
+  --bg: #f4f7fc;
+  --panel: #ffffff;
+  --panel-2: #f7f9fd;
+  --line: #dbe3f0;
+  --text: #17233d;
+  --text-dim: #66738a;
+  --royal: #2454d6;
+  --royal-dark: #173b9b;
+  --royal-soft: #eaf0ff;
+  --ember: #2454d6;
+  --ember-dim: #173b9b;
+  --amber: #d98b16;
+  --teal: #159b7b;
+  --danger: #d9344a;
   --font-ui: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 }
@@ -46,7 +49,7 @@ header {
   justify-content: space-between;
   padding: 14px 22px;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, #131a24, #0d1117);
+  background: #ffffff;
 }
 
 .brand {
@@ -59,8 +62,8 @@ header {
   width: 30px;
   height: 30px;
   border-radius: 7px;
-  background: radial-gradient(circle at 30% 30%, var(--ember), var(--ember-dim));
-  box-shadow: 0 0 14px rgba(255,106,61,0.55);
+  background: linear-gradient(135deg, var(--royal), var(--royal-dark));
+  box-shadow: 0 6px 16px rgba(36,84,214,0.22);
   flex-shrink: 0;
 }
 
@@ -240,7 +243,7 @@ button.rerun:disabled {
 #map {
   width: 100%;
   height: 100%;
-  background: #0d1117;
+  background: #eef3fa;
 }
 
 /* Map overlay */
@@ -249,8 +252,8 @@ button.rerun:disabled {
   z-index: 1000;
   top: 14px;
   left: 14px;
-  background: rgba(13,17,23,0.88);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.94);
+  border: 1px solid var(--line);
   border-radius: 7px;
   padding: 8px 11px;
   color: var(--text);
@@ -264,8 +267,8 @@ button.rerun:disabled {
   z-index: 1000;
   bottom: 14px;
   left: 14px;
-  background: rgba(13,17,23,0.88);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.94);
+  border: 1px solid var(--line);
   border-radius: 7px;
   padding: 7px 10px;
   color: var(--text-dim);
@@ -384,17 +387,17 @@ tbody tr:hover {
 }
 
 .pill.High {
-  background: rgba(255,77,77,0.15);
+  background: #fdecef;
   color: var(--danger);
 }
 
 .pill.Medium {
-  background: rgba(232,161,58,0.15);
+  background: #fff4df;
   color: var(--amber);
 }
 
 .pill.Low {
-  background: rgba(58,198,168,0.15);
+  background: #e7f7f2;
   color: var(--teal);
 }
 
@@ -417,29 +420,29 @@ tbody tr:hover {
 
 /* Leaflet styling */
 .leaflet-control-zoom a {
-  background: #131a24 !important;
-  color: #dbe4ef !important;
-  border-color: #253141 !important;
+  background: #ffffff !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
 }
 
 .leaflet-control-zoom a:hover {
-  background: #1a2330 !important;
+  background: var(--royal-soft) !important;
 }
 
 .leaflet-control-attribution {
-  background: rgba(13,17,23,0.85) !important;
-  color: #8a99ac !important;
+  background: rgba(255,255,255,0.92) !important;
+  color: var(--text-dim) !important;
 }
 
 .leaflet-control-attribution a {
-  color: #dbe4ef !important;
+  color: var(--text) !important;
 }
 
 .leaflet-popup-content-wrapper {
   background: var(--panel-2);
   color: var(--text);
   border-radius: 7px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 12px 32px rgba(27,55,105,0.16);
 }
 
 .leaflet-popup-tip {
@@ -519,6 +522,86 @@ tbody tr:hover {
 }
 </style>
 
+<style>
+/* Royal-blue light dashboard refresh */
+body { line-height: 1.45; }
+header { min-height: 68px; padding: 13px 24px; box-shadow: 0 2px 12px rgba(25,55,110,.06); }
+.brand { gap: 11px; }
+.brand .mark { width: 34px; height: 34px; border-radius: 9px; }
+.brand h1 { color: #14254b; font-size: 17px; }
+.brand .sub { color: #71809a; }
+.status { gap: 14px; }
+.status b { color: var(--royal-dark); }
+button.rerun {
+  background: var(--royal);
+  border-color: var(--royal);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 9px 15px;
+  box-shadow: 0 5px 12px rgba(36,84,214,.18);
+}
+button.rerun:hover { background: var(--royal-dark); border-color: var(--royal-dark); }
+.layout { gap: 0; background: var(--line); }
+.kpis { gap: 0; background: var(--line); }
+.kpi { padding: 16px 20px; border-right: 1px solid var(--line); }
+.kpi .label { color: #71809a; }
+.kpi .value { color: #17233d; }
+.kpi.high .value { color: var(--danger); }
+.kpi.med .value { color: var(--amber); }
+.kpi.low .value { color: var(--teal); }
+.filters { padding: 19px 17px; border-right: 1px solid var(--line); }
+.filters h2, .side h2 { color: var(--royal-dark); }
+.field label { color: #697891; font-weight: 500; }
+.field select, .field input {
+  background: #fff;
+  border-color: #cfd9e8;
+  color: var(--text);
+  border-radius: 7px;
+  padding: 8px 10px;
+}
+.field select:focus, .field input:focus {
+  outline: none;
+  border-color: var(--royal);
+  box-shadow: 0 0 0 3px rgba(36,84,214,.10);
+}
+.range-val { color: var(--royal); font-weight: 600; }
+.legend { padding: 11px; background: var(--royal-soft); border-radius: 9px; }
+.legend .row { color: #50617e; }
+.map-wrapper { border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+.map-title {
+  top: 16px; left: 16px;
+  background: rgba(255,255,255,.96);
+  color: var(--royal-dark);
+  border: 1px solid #d6e0ef;
+  box-shadow: 0 5px 18px rgba(34,61,108,.12);
+  border-radius: 9px;
+  font-weight: 600;
+}
+.map-status {
+  bottom: 16px; left: 16px;
+  background: rgba(255,255,255,.96);
+  color: #65748d;
+  border: 1px solid #d6e0ef;
+  box-shadow: 0 5px 18px rgba(34,61,108,.10);
+}
+.side { border-left: 1px solid var(--line); }
+.side .chart-block { padding: 17px; }
+.bar-track { background: #e8edf5; }
+.bar-fill { background: var(--royal) !important; }
+thead th { background: #f2f5fa; color: #687792; }
+tbody td { border-bottom-color: #e8edf4; color: #40516e; }
+tbody tr:hover { background: #f1f5ff; }
+.id-cell { color: var(--royal-dark); font-weight: 600; }
+.leaflet-popup-content-wrapper { background: #fff; color: var(--text); }
+.leaflet-popup-tip { background: #fff; }
+.popup-title { color: var(--royal-dark); }
+.popup-row { color: #687792; }
+.popup-row strong { color: #243653; }
+.leaflet-control-zoom { box-shadow: 0 4px 14px rgba(35,61,105,.12) !important; }
+::-webkit-scrollbar-thumb { background: #c8d3e3; }
+</style>
+
 </head>
 
 <body>
@@ -540,7 +623,7 @@ tbody tr:hover {
 
 <select
   id="sample-size"
-  style="background:var(--panel-2); color:var(--text); border:1px solid var(--line); border-radius:5px; padding:6px 8px; font-family:var(--font-mono); font-size:12px;"
+  style="background:#fff; color:var(--text); border:1px solid var(--line); border-radius:5px; padding:6px 8px; font-family:var(--font-mono); font-size:12px;"
 >
   <option value="4000">4,000 records</option>
   <option value="8000" selected>8,000 records</option>
@@ -870,12 +953,12 @@ function renderClassBars(counts) {
     Math.max(...Object.values(counts), 1);
 
   const palette = [
-    "#ff6a3d",
-    "#e8a13a",
-    "#3ac6a8",
-    "#7aa2e0",
-    "#c77dff",
-    "#f0f0f0"
+    "#2454d6",
+    "#3f6de0",
+    "#5a83e8",
+    "#7598ed",
+    "#8faef2",
+    "#a9c0f6"
   ];
 
   const entries =
